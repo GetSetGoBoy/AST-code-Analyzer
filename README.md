@@ -1,5 +1,5 @@
-# AST-code-Analyzer
-A static analysis tool that uses AST parsing to audit Python code for security risks, naming issues, and structural complexity. It provides instant terminal feedback to ensure enterprise-grade code quality and safety in ERP and medical systems.
+# AST-Code-Analyzer
+AST Code Analyzer is a sophisticated static analysis tool that employs Abstract Syntax Tree (AST) parsing to comprehensively audit Python codebases for security vulnerabilities, naming convention violations, and structural complexity. It delivers immediate, actionable feedback directly in the terminal, enforcing enterprise-grade code quality and safety standards essential for mission-critical applications such as ERP systems and medical software.
 
 # Features
 AST-Based Analysis: Understands code structure rather than just searching for text.
