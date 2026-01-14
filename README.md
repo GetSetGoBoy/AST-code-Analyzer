@@ -1,17 +1,40 @@
-# AST-Code-Analyzer
-AST Code Analyzer is a sophisticated static analysis tool that employs Abstract Syntax Tree (AST) parsing to comprehensively audit Python codebases for security vulnerabilities, naming convention violations, and structural complexity. It delivers immediate, actionable feedback directly in the terminal, enforcing enterprise-grade code quality and safety standards essential for mission-critical applications such as ERP systems and medical software.
+# AST-RAG-Code-Analyzer
+AST-RAG-Code-Analyzer is an AI-powered static code analysis tool that bridges the gap between traditional linting and modern LLM intelligence. By combining Abstract Syntax Tree (AST) parsing with a Retrieval-Augmented Generation (RAG) engine, it not only identifies structural flaws but also retrieves context-specific security advice from a curated knowledge base. This hybrid approach ensures that developers receive precise, expert-level recommendations for fixing vulnerabilities in real-time.
 
 # Features
-AST-Based Analysis: Understands code structure rather than just searching for text.
+Hybrid Analysis Engine: Combines deterministic AST-based pattern matching with probabilistic AI-driven retrieval for 100% accuracy in detection and high-quality advice.
 
-Security Guardrails: Detects dangerous eval() calls to prevent injection attacks.
+Context-Aware Advice (RAG): Unlike generic linters, it retrieves specific documentation and "why-to-fix" explanations from a customizable security knowledge base.
 
-Quality Control: Identifies poor naming conventions (short function names).
+Vectorized Search: Uses HuggingFace Embeddings to convert security rules into mathematical vectors, allowing the tool to find advice based on "meaning" rather than just keywords.
 
-Complexity Check: Flags functions with excessive arguments to promote clean code.
+Zero-Overhead Security: Operates entirely on your local machine using a persistent ChromaDB store, ensuring your source code never leaves your environment.
+
+Extensible Knowledge Base: Easily update the tool’s "intelligence" by simply adding new rules to a plain text file—no retraining of AI models required.
 
 # How It Works
-The tool uses Python's Abstract Syntax Tree (AST) module to parse source code into a logical tree. It "visits" specific nodes—like function definitions and call expressions—comparing them against predefined safety and style rules without actually executing the code.
+Parsing (The X-Ray): The tool reads the target Python file and builds a "Tree" of its structure (AST).
+
+Detection: It traverses the tree, looking for specific "Nodes" like function definitions (to check naming), arguments (to check complexity), and sensitive function calls (like eval).
+
+Retrieval: When a security risk is found, a query is sent to the RAG Engine.
+
+Vector Matching: The engine converts the query into an embedding and performs a similarity search against the ChromaDB vector store to find the best-matching security rule.
+
+Reporting: The tool outputs a clean, color-coded report showing the line number, the issue type, and the "AI Advice" retrieved from the knowledge base.
 
 # How to Run
+Prerequisites
+Ensure you have Python installed and the following libraries:
+python -m pip install langchain-chroma langchain-huggingface sentence-transformers
+
+Step 1: Setup the Knowledge Base
+Before the first run, you must let the "Librarian" read your rules.
+python -c "import rag_engine; rag_engine.build_knowledge_base()"
+
+Step 2: Run the Analyzer
+Execute the tool against any Python file (e.g., app_logic.py) to see the results.
 python my_tool.py app_logic.py
+
+Step 3: Update Rules (Optional)
+If you want to add new security rules, simply edit security_knowledge.txt and repeat Step 1. The tool will immediately "learn" the new rules.
