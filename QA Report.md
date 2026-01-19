@@ -8,10 +8,10 @@ This test validates the engine's ability to map vulnerable code patterns to the 
 
 | Test Case (Input) | Expected Keyword in Advice | Result |
 | --- | --- | --- |
-| `eval(data)` | `ast.literal_eval` | ✅ PASS |
-| `password = '123'` | `Environment Variables` | ✅ PASS |
-| `strcpy(a, b)` | `strncpy` | ✅ PASS |
-| `innerHTML` | `textContent` | ✅ PASS |
+| `eval(data)` | `ast.literal_eval` | PASS |
+| `password = '123'` | `Environment Variables` |  PASS |
+| `strcpy(a, b)` | `strncpy` |  PASS |
+| `innerHTML` | `textContent` |  PASS |
 
 **Accuracy Score: 100%**
 
