@@ -63,4 +63,4 @@ Functional Complexity: Excessive argument counts.
 
 Security Flaws: Hardcoded secrets and dangerous function calls.
 
-Full Report: For a detailed breakdown of the testing methodology and individual test results, please view the QA Report.md.
+Full Report: For a detailed breakdown of the testing methodology and individual test results, please view the [Link to the QA Report](QA%20Report.md).
